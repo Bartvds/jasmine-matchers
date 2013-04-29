@@ -3,6 +3,9 @@ require([], function() {
   describe('toHaveLength', function() {
 
     describe('matches', function() {
+      it('should work for `{length:2}`', function() {
+        expect({length: 2}).toHaveLength(2);
+      });
       it('should work for `{length:null}`', function() {
         expect({length: null}).toHaveLength(null);
       });
