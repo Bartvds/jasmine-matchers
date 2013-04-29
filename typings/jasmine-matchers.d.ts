@@ -24,7 +24,7 @@ declare module jasmine {
         toExactlyHaveProperties(...names:string[]): bool;
 
         //toStartEndWith
-        toStartWith(value:string) : bool;
+        toStartWith(value:string): bool;
         toStartWith(value:any[]): bool;
 
         toEndWith(value:string): bool;
@@ -34,12 +34,12 @@ declare module jasmine {
         toSomeStartWith(searchString:string): bool;
 
         toEachEndWith(searchString:string): bool;
-        toSomeEndWith(searchString:string) : bool;
+        toSomeEndWith(searchString:string): bool;
 
         toStartWithEither(...searchString:any[]): bool;
 
         //toThrow
         toThrowInstanceOf(klass:Function): bool;
-        toThrowStartsWith(text:string) :bool;
+        toThrowStartsWith(text:string): bool;
     }
 }

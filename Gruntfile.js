@@ -34,7 +34,7 @@ module.exports = function (grunt) {
         typescript: {
             ts_specs: {
                 src: ['typings/test/**/*.ts'],
-                dest: 'typings/out',
+                dest: 'typetest',
                 options: {
                   module: 'amd',
                   target: 'es5',
@@ -42,17 +42,6 @@ module.exports = function (grunt) {
                   sourcemap: true,
                   declaration: true
                 }
-            },
-            bla: {
-              src: ['typings/bla/**/*.ts'],
-              dest: 'typings/bla2',
-              options: {
-                module: 'amd', //or commonjs
-                target: 'es5', //or es3
-                base_path: 'typings/bla',
-                sourcemap: true,
-                declaration: true
-              }
             }
         },
         wrap: {
