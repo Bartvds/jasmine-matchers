@@ -1,3 +1,8 @@
+// Type definitions for jasmine-matchers v0.2.1 API
+// Project: https://github.com/uxebu/jasmine-matchers
+// Definitions by: Bart van der Schoor <https://github.com/Bartvds>
+// Definitions: https://github.com/borisyankov/DefinitelyTyped
+
 declare module jasmine {
     interface Matchers {
 
