@@ -1,0 +1,22 @@
+these
+	toHaveProperties
+	toHaveOwnProperties
+	toExactlyHaveProperties
+	toStartWithEither
+
+all accept seperate arguments, while
+	toStartWith
+	toEndWith
+
+accept single value or array
+
+
+needs the basic test (I added it)
+	toHaveLength
+
+these use a different check for seemingly same item?
+	toThrowInstanceOf
+	toBeInstanceOf
+maybe im confused though (and what about Object.create() or funky prototype/constructor styles?)
+
+some matchers could allow RegExp's
