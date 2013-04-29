@@ -24,18 +24,19 @@ declare module jasmine {
         toExactlyHaveProperties(...names:string[]): bool;
 
         //toStartEndWith
-        toEndWith(value:string): bool;
-        toEndWith(values:string[]): bool;
-
-        toEachEndWith(searchString:string): bool;
-        toStartWithEither(...searchString:string[]): bool;
-        toSomeEndWith(searchString:string) : bool;
-
         toStartWith(value:string) : bool;
-        toStartWith(values:string[]): bool;
+        toStartWith(value:any[]): bool;
+
+        toEndWith(value:string): bool;
+        toEndWith(values:any[]): bool;
 
         toEachStartWith(searchString:string): bool;
         toSomeStartWith(searchString:string): bool;
+
+        toEachEndWith(searchString:string): bool;
+        toSomeEndWith(searchString:string) : bool;
+
+        toStartWithEither(...searchString:any[]): bool;
 
         //toThrow
         toThrowInstanceOf(klass:Function): bool;
