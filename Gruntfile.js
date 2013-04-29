@@ -6,6 +6,7 @@ module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-typescript');
     grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-jasmine-node');
     grunt.loadNpmTasks('grunt-wrap');
 
@@ -14,8 +15,15 @@ module.exports = function (grunt) {
         pkg: grunt.file.readJSON('package.json'),
         clean: {
             typing: [
-                'test_typing'
+                'test_typing',
+                'dist'
             ]
+        },
+        concat: {
+            dist: {
+                src: ['LICENSE.txt', 'src/**/*.js', '!src/matchers.js'],
+                dest: 'dist/jasmine-matchers.js'
+            }
         },
         wrap: {
             ts_specs: {
@@ -81,11 +89,11 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask('default', ['test']);
-    grunt.registerTask('test', ['jasmine_node:test']);
-    grunt.registerTask('typing', ['clean', 'wrap:ts_specs', 'typescript:ts_specs', 'jasmine_node:test']);
+    grunt.registerTask('build', ['concat', 'jasmine_node:test']);
+    grunt.registerTask('typing', ['clean', 'wrap:ts_specs', 'typescript:ts_specs', 'jasmine_node:ts_specs']);
 
     //link editor UI buttons
     grunt.registerTask('edit_01', ['clean']);
-    grunt.registerTask('edit_02', ['test']);
+    grunt.registerTask('edit_02', ['build']);
     grunt.registerTask('edit_03', ['typing']);
 };
