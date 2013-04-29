@@ -5,9 +5,7 @@ module.exports = function (grunt) {
     var util = require('util');
 
     grunt.loadNpmTasks('grunt-typescript');
-    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-jasmine-node');
     grunt.loadNpmTasks('grunt-wrap');
 
@@ -15,79 +13,79 @@ module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         clean: {
-            typing : [
-                'typings/test'
+            typing: [
+                'test_typing'
             ]
-        },
-        copy: {
-            ts_specs: {
-                expand: true,
-                cwd: 'test/',
-                src: ['**/*-spec.js'],
-                dest: 'typings/test/',
-                rename: function (dest, src, options) {
-                    console.log(path.join(dest, src.replace(/\.js$/, '.ts')));
-                    return path.join(dest, src.replace(/\.js$/, '.ts'));
-                }
-            }
-        },
-        typescript: {
-            ts_specs: {
-                src: ['typings/test/**/*.ts'],
-                dest: 'typetest',
-                options: {
-                  module: 'amd',
-                  target: 'es5',
-                  base_path: 'typings/test',
-                  sourcemap: true,
-                  declaration: true
-                }
-            }
         },
         wrap: {
             ts_specs: {
                 expand: true,
                 cwd: 'test/',
                 src: ['**/*-spec.js'],
-                dest: 'typings/test/',
+                dest: 'test_typing/',
                 rename: function (dest, src, options) {
-                  return path.join(dest, src.replace(/\.js$/, '.ts'));
+                    return path.join(dest, src.replace(/\.js$/, '.ts'));
                 },
                 options: {
-                    seperator:'\n',
-                    wrapper: ['/// <reference path="../_refs.ts" />\n\n', '']
+                    seperator: '\n',
+                    wrapper: ['/// <reference path="../typings/_refs.ts" />\n\n', '']
                 }
             }
         },
-        jasmine: {
-            tiled: {
-                src: 'build/tiled.js',
+        typescript: {
+            ts_specs: {
+                src: ['test_typing/**/*.ts'],
+                dest: 'test_typing/',
                 options: {
-                    specs: 'build/test/**/*-spec.js',
-                    helpers: 'build/test/**/*.helper.js'
+                    module: 'amd',
+                    target: 'es5',
+                    base_path: 'test_typing/',
+                    sourcemap: 'true'
+                }
+            }
+        },
+        jasmine_node: {
+            test: {
+                src: 'test/',
+                options: {
+                    match: '.',
+                    matchall: false,
+                    extensions: 'js',
+                    useRequireJs: true,
+                    specNameMatcher: 'spec',
+                    jUnit: {
+                        report: false,
+                        savePath: "build/reports/jasmine/",
+                        useDotNotation: true,
+                        consolidate: true
+                    }
+                }
+            },
+            ts_specs: {
+                src: 'test_typing/',
+                options: {
+                    match: '.',
+                    matchall: false,
+                    extensions: 'js',
+                    useRequireJs: true,
+                    specNameMatcher: 'spec',
+                    jUnit: {
+                        report: false,
+                        savePath: "build/reports/jasmine/",
+                        useDotNotation: true,
+                        consolidate: true
+                    }
                 }
             }
         }
     });
 
-    grunt.registerTask('default', ['build']);
-    grunt.registerTask('build', []);
-    /*
-     grunt.registerTask('build:all', ['clean:build', 'build:assets', 'build:lib']);
-     grunt.registerTask('build:assets', ['copy:assets', 'copy:typings', 'copy:components']);
-     grunt.registerTask('build:lib', ['typescript:build']);
-
-     grunt.registerTask('live:assets', ['regarde:assets']);
-     grunt.registerTask('live:lib', ['regarde:lib']);
-     grunt.registerTask('live:die', ['regarde:lib_die']);
-     */
-    grunt.registerTask('ts_test1', ['clean', 'wrap:ts_specs','typescript:ts_specs']);
-    grunt.registerTask('ts_test2', ['clean', 'wrap:ts_specs']);
+    grunt.registerTask('default', ['test']);
+    grunt.registerTask('test', ['jasmine_node:test']);
+    grunt.registerTask('typing', ['clean', 'wrap:ts_specs', 'typescript:ts_specs', 'jasmine_node:test']);
 
     //link editor UI buttons
     grunt.registerTask('edit_01', ['clean']);
-    grunt.registerTask('edit_02', ['build']);
-    grunt.registerTask('edit_03', ['ts_test1']);
-    grunt.registerTask('edit_04', ['ts_test2']);
-    grunt.registerTask('edit_05', ['typescript:ts_specs']);
+    grunt.registerTask('edit_02', ['test']);
+    grunt.registerTask('edit_03', ['typing']);
 };

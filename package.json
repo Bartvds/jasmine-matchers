@@ -29,17 +29,15 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "jasmine-node": "~1.0.26",
+    "jasmine-node": "~1.0.28",
     "requirejs": "~2.1.1",
+    "grunt": "~0.4.1",
     "grunt-contrib-clean": "~0.4.1",
     "grunt-typescript": "~0.1.4",
-    "grunt": "~0.4.1",
-    "grunt-contrib-copy": "~0.4.1",
     "grunt-jasmine-node": "~0.1.0",
-    "grunt-contrib-concat": "~0.3.0",
     "grunt-wrap": "git+https://github.com/Bartvds/grunt-wrap/#master"
   },
   "notes": [
-    "grunt-wrap github module link should be reverted to npm if pull request is merged and pushed"
+    "grunt-wrap github module link should be reverted to npm when pull request is merged and pushed"
   ]
 }
