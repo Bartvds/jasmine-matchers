@@ -1,5 +1,9 @@
 Under MIT License
 
+# Fork notes
+
+There is a TypeScript definitions file, grunt file, test.ts auto-generator and units tests in the `typings` branch, in the `typings/jasmine-matchers` folder.
+
 # Overview
 
 This project contains a set of matchers for the jasmine test library
