@@ -8,7 +8,7 @@ Typings 2013 Bart van der Schoor
 
 TypeScript tests auto-extracted from jasmine-matchers unit test.
 
-Original jasmine-matchers license applies
+Original jasmine-matchers license applies:
 
 Copyright (C) 2013, uxebu Inc.
 
