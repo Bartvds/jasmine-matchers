@@ -1,6 +1,6 @@
-/// <reference path="DefinitelyTyped/requirejs/requirejs.d.ts" />
-/// <reference path="DefinitelyTyped/jasmine/jasmine.d.ts" />
-/// <reference path="jasmine-matchers.d.ts" />
+/// <reference path="requirejs/requirejs.d.ts" />
+/// <reference path="jasmine/jasmine.d.ts" />
+/// <reference path="jasmine-matchers/jasmine-matchers.d.ts" />
 
 //fix haxx
 declare var global;

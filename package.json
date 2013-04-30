@@ -30,14 +30,18 @@
   "dependencies": {},
   "devDependencies": {
     "requirejs": "~2.1.1",
+    "jasmine-node": "~1.0.26",
     "grunt": "~0.4.1",
     "grunt-contrib-clean": "~0.4.1",
     "grunt-typescript": "~0.1.4",
     "grunt-jasmine-node": "~0.1.0",
     "grunt-wrap": "git+https://github.com/Bartvds/grunt-wrap/#master",
-    "grunt-contrib-concat": "~0.3.0"
+    "grunt-regex-replace": "git+https://github.com/bomsy/grunt-regex-replace/#master",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-copy": "~0.4.1"
   },
   "notes": [
-    "grunt-wrap github module link should be reverted to npm when pull request is merged and pushed"
+    "grunt-wrap github module link should be reverted to npm when pull request is merged and pushed",
+    "grunt-regex-replace module should be reverted to npm once it install properly"
   ]
 }
