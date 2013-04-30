@@ -6,7 +6,7 @@ TypeScript definitions in the [typings/jasmine-matchers/](typings/jasmine-matche
 
 Rebuilding and running types-tests requires a `npm install` from project root to pull the development modules and you need the global `npm install grunt-cli -g` for grunt.
 
-Use `grunt typings` to rebuild and test the `jasmine-matchers.test.ts` file from the original unit tests, run it and update typings license.
+Use `grunt typing` to rebuild and test the `jasmine-matchers.test.ts` file from the original unit tests, run it and update typings license.
 
 Use `grunt build` as replacement for `jasmine-matchers`'s old `makefile` build.
 
