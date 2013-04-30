@@ -1,0 +1,23 @@
+some matchers accept multple seperate arguments
+	toHaveProperties
+	toHaveOwnProperties
+	toExactlyHaveProperties
+	toStartWithEither
+while
+	toStartWith
+	toEndWith
+accept either a single value or a single array and iterate it. maybe those toHave's should allow an array as single argument as well so we can share the values without .apply()
+
+this needs the basic test (only tested a null case)
+	toHaveLength
+
+this one is missing according to pattern
+    toEndWithEither (vs toStartWithEither)
+
+maybe these use a different check for seemingly same item?
+	toThrowInstanceOf
+	toBeInstanceOf
+and what about Object.create() or funky prototype/constructor styles?
+(maybe i'm just confused about meaning of the test)
+
+some matchers ideally chould allow RegExp as string match
