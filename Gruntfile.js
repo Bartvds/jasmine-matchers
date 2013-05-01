@@ -113,7 +113,7 @@ module.exports = function (grunt) {
             },
             ts_tests: {
                 src: ['typings/jasmine-matchers/*-tests.ts'],
-                dest: 'typings_tmp/concat/',
+                dest: 'typings_tmp/test/',
                 options: {
                     module: 'amd',
                     target: 'es5',
@@ -183,7 +183,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('default', ['build']);
     grunt.registerTask('build', ['concat', 'jasmine_node:test']);
-    grunt.registerTask('typing', ['clean:tmp', 'copy:ts_licence', 'copy:ts_build', 'wrap:ts_specs', 'typescript:ts_specs', 'jasmine_node:ts_specs', 'copy:ts_tests', 'regex-replace:ts_tests', 'concat:ts_tests', 'copy:ts_build_tests', 'typescript:ts_tests', 'clean:tmp']);
+    grunt.registerTask('typing', ['clean:tmp', 'copy:ts_licence', 'copy:ts_build', 'wrap:ts_specs', 'typescript:ts_specs', 'jasmine_node:ts_specs', 'copy:ts_tests', 'regex-replace:ts_tests', 'concat:ts_tests', 'copy:ts_build_tests', 'typescript:ts_tests']);
 
     //link editor UI buttons
     grunt.registerTask('edit_01', ['clean']);
