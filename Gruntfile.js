@@ -182,11 +182,8 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask('default', ['build']);
-    grunt.registerTask('build', ['concat', 'jasmine_node:test']);
+    grunt.registerTask('build', ['concat:dist', 'jasmine_node:test']);
     grunt.registerTask('typing', ['clean:tmp', 'copy:ts_licence', 'copy:ts_build', 'wrap:ts_specs', 'typescript:ts_specs', 'jasmine_node:ts_specs', 'copy:ts_tests', 'regex-replace:ts_tests', 'concat:ts_tests', 'copy:ts_build_tests', 'typescript:ts_tests']);
 
-    //link editor UI buttons
-    grunt.registerTask('edit_01', ['clean']);
-    grunt.registerTask('edit_02', ['build']);
-    grunt.registerTask('edit_03', ['typing']);
+    grunt.registerTask('dev', ['typing']);
 };
